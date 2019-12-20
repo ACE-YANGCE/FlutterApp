@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
+import 'package:flutter_app/page/animated_cross_fade_page.dart';
+import 'package:flutter_app/page/animated_switcher_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,6 +16,10 @@ class MyApp extends StatelessWidget {
         home: MyHomePage(title: 'ACE Flutter Demo Home Page'),
         routes: {
           'aceStepperPage': (BuildContext context) => ACEStepperPage(),
+          'animatedCrossFadePage': (BuildContext context) =>
+              AnimatedCrossFadePage(),
+          'animatedSwitcherPage': (BuildContext context) =>
+              AnimatedSwitcherPage(),
         });
   }
 }
@@ -48,6 +54,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 4),
                 _itemWid('ACEStepper horizontal', 1,
                     Colors.deepPurple.withOpacity(0.4))
+              ]),
+              Row(children: <Widget>[
+                _itemWid(
+                    'AnimatedCrossFade', 2, Colors.blueAccent.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid(
+                    'AnimatedSwitcher', 3, Colors.blueGrey.withOpacity(0.4))
               ])
             ])),
         floatingActionButton: FloatingActionButton(
@@ -77,6 +90,12 @@ class _MyHomePageState extends State<MyHomePage> {
             MaterialPageRoute(builder: (BuildContext context) {
           return ACEStepperPage(type: ACEStepperType.horizontal);
         }));
+        break;
+      case 2:
+        Navigator.pushNamed(context, "animatedCrossFadePage");
+        break;
+      case 3:
+        Navigator.pushNamed(context, 'animatedSwitcherPage');
         break;
     }
   }

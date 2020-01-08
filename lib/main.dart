@@ -4,6 +4,7 @@ import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
 import 'package:flutter_app/page/animated_cross_fade_page.dart';
 import 'package:flutter_app/page/animated_switcher_page.dart';
+import 'package:flutter_app/page/ace_checkbox_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
           'animatedSwitcherPage': (BuildContext context) =>
               AnimatedSwitcherPage(),
           'aceMarqueePage': (BuildContext context) => ACEMarqueePage(),
+          'aceCheckBoxPage': (BuildContext context) => ACECheckBoxPage(),
         });
   }
 }
@@ -67,7 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('ACEMarquee 跑马灯', 4, Colors.orange.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 5, Colors.deepOrangeAccent.withOpacity(0.4))
+                _itemWid('ACECheckBox 复选框', 5,
+                    Colors.deepOrangeAccent.withOpacity(0.4))
               ])
             ])),
         floatingActionButton: FloatingActionButton(
@@ -106,6 +109,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 4:
         Navigator.pushNamed(context, 'aceMarqueePage');
+        break;
+      case 5:
+        Navigator.pushNamed(context, 'aceCheckBoxPage');
         break;
     }
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
+import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
 import 'package:flutter_app/page/animated_cross_fade_page.dart';
 import 'package:flutter_app/page/animated_switcher_page.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
           'aceMarqueePage': (BuildContext context) => ACEMarqueePage(),
           'aceCheckBoxPage': (BuildContext context) => ACECheckBoxPage(),
           'dropDownPage': (BuildContext context) => DropDownPage(),
+          'tabBarPage': (BuildContext context) => TabBarPage(),
         });
   }
 }
@@ -77,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('Dropdown 下拉框', 6, Colors.redAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 7, Colors.red.withOpacity(0.4))
+                _itemWid('TabBar 导航栏', 7, Colors.red.withOpacity(0.4))
               ])
             ])),
         floatingActionButton: FloatingActionButton(
@@ -122,6 +124,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 6:
         Navigator.pushNamed(context, 'dropDownPage');
+        break;
+      case 7:
+        Navigator.pushNamed(context, 'tabBarPage');
         break;
     }
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widget/ace_tabbar_indicator.dart';
 
 class TabBarPage extends StatefulWidget {
   @override
@@ -108,6 +109,7 @@ class _TabBarPageState extends State<TabBarPage>
       unselectedLabelColor: Colors.white,
       unselectedLabelStyle: TextStyle(color: Colors.purpleAccent, fontSize: 14),
       dragStartBehavior: DragStartBehavior.down,
+      indicator: ACETabBarIndicator(),
       isScrollable: true,
       tabs: <Widget>[
         Tab(text: '今日爆款'),

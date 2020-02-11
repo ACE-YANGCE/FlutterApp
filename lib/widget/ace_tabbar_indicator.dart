@@ -12,30 +12,33 @@ class ACETabBarIndicator extends Decoration {
   // 定长下划线类型时 指示器宽度
   final double lineWidth;
 
-  ACETabBarIndicator({this.type, this.height, this.lineWidth});
+  // 指示器颜色
+  final Color color;
+
+  ACETabBarIndicator({this.type, this.height, this.lineWidth, this.color});
 
   @override
-  BoxPainter createBoxPainter([onChanged]) =>
-      _ACETabBarIndicatorPainter(this, type, height, lineWidth, onChanged);
+  BoxPainter createBoxPainter([onChanged]) => _ACETabBarIndicatorPainter(
+      this, type, height, lineWidth, color, onChanged);
 }
 
 class _ACETabBarIndicatorPainter extends BoxPainter {
   final ACETabBarIndicator decoration;
   ACETabBarIndicatorType type;
   double height, lineWidth;
+  Color color;
 
   _ACETabBarIndicatorPainter(this.decoration, this.type, this.height,
-      this.lineWidth, VoidCallback onChanged);
+      this.lineWidth, this.color, VoidCallback onChanged);
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     Paint _paint = Paint()
-      ..color = Colors.redAccent
+      ..color = color ?? _kIndicatorColor
       ..style = PaintingStyle.fill
       ..strokeCap = StrokeCap.round;
     double _height = height ?? _kIndicatorHeight;
     double _width = lineWidth ?? _kIndicatorWidth;
-    type = type ?? ACETabBarIndicatorType.triangle;
 //    final Rect rect = offset & configuration.size;
     switch (type) {
       case ACETabBarIndicatorType.circle:
@@ -47,19 +50,19 @@ class _ACETabBarIndicatorPainter extends BoxPainter {
         break;
       case ACETabBarIndicatorType.triangle:
         if (_height > configuration.size.height) _height = _kIndicatorHeight;
-        Path _path = Path();
-        _path.moveTo(offset.dx + (configuration.size.width) / 2 - _height,
-            configuration.size.height);
-        _path.lineTo(
-            _height * tan(pi / 6) +
-                offset.dx +
-                (configuration.size.width - _height) / 2,
-            configuration.size.height - _height);
-        _path.lineTo(
-            _height * tan(pi / 6) +
-                offset.dx +
-                (configuration.size.width + _height) / 2,
-            configuration.size.height);
+        Path _path = Path()
+          ..moveTo(offset.dx + (configuration.size.width) / 2 - _height,
+              configuration.size.height)
+          ..lineTo(
+              _height * tan(pi / 6) +
+                  offset.dx +
+                  (configuration.size.width - _height) / 2,
+              configuration.size.height - _height)
+          ..lineTo(
+              _height * tan(pi / 6) +
+                  offset.dx +
+                  (configuration.size.width + _height) / 2,
+              configuration.size.height);
         canvas.drawPath(_path, _paint);
         break;
       case ACETabBarIndicatorType.rrect:
@@ -107,7 +110,7 @@ enum ACETabBarIndicatorType {
   triangle, // 上三角
   rrect, // 圆角矩形(整个 Tab)
   rrect_inner, // 圆角矩形(有内边距)
-  runderline, // 圆角下弧线
+  runderline, // 圆角下划线
   runderline_fixed // 定长圆角下划线
 }
 
@@ -117,3 +120,5 @@ const double _kIndicatorHeight = 6.0;
 const double _kIndicatorWidth = 12.0;
 // 指示器圆角
 const double _kIndicatorAngle = 10.0;
+// 指示器颜色
+const Color _kIndicatorColor = Colors.redAccent;

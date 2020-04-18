@@ -8,6 +8,7 @@ import 'package:flutter_app/page/animated_switcher_page.dart';
 import 'package:flutter_app/page/ace_checkbox_page.dart';
 import 'package:flutter_app/page/drop_down_page.dart';
 import 'package:flutter_app/page/stream_page.dart';
+import 'package:flutter_app/page/ace_wave_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
           'dropDownPage': (BuildContext context) => DropDownPage(),
           'tabBarPage': (BuildContext context) => TabBarPage(),
           'streamPage': (BuildContext context) => StreamPage(),
+          'aceWavePage': (BuildContext context) => ACEWavePage(),
         });
   }
 }
@@ -86,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('Flutter Stream', 8, Colors.green.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 9, Colors.lightGreen.withOpacity(0.4))
+                _itemWid('ACEWave 波浪', 9, Colors.lightGreen.withOpacity(0.4))
               ])
             ])),
         floatingActionButton: FloatingActionButton(
@@ -139,6 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Navigator.pushNamed(context, 'streamPage');
         break;
       case 9:
+        Navigator.pushNamed(context, 'aceWavePage');
         break;
     }
   }

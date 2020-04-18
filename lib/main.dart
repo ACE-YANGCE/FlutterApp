@@ -7,6 +7,7 @@ import 'package:flutter_app/page/animated_cross_fade_page.dart';
 import 'package:flutter_app/page/animated_switcher_page.dart';
 import 'package:flutter_app/page/ace_checkbox_page.dart';
 import 'package:flutter_app/page/drop_down_page.dart';
+import 'package:flutter_app/page/stream_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
           'aceCheckBoxPage': (BuildContext context) => ACECheckBoxPage(),
           'dropDownPage': (BuildContext context) => DropDownPage(),
           'tabBarPage': (BuildContext context) => TabBarPage(),
+          'streamPage': (BuildContext context) => StreamPage(),
         });
   }
 }
@@ -80,6 +82,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid('Dropdown 下拉框', 6, Colors.redAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
                 _itemWid('TabBar 导航栏', 7, Colors.red.withOpacity(0.4))
+              ]),
+              Row(children: <Widget>[
+                _itemWid('Flutter Stream', 8, Colors.green.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 9, Colors.lightGreen.withOpacity(0.4))
               ])
             ])),
         floatingActionButton: FloatingActionButton(
@@ -127,6 +134,11 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 7:
         Navigator.pushNamed(context, 'tabBarPage');
+        break;
+      case 8:
+        Navigator.pushNamed(context, 'streamPage');
+        break;
+      case 9:
         break;
     }
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
+import 'package:flutter_app/page/bloc_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
 import 'package:flutter_app/page/animated_cross_fade_page.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
           'tabBarPage': (BuildContext context) => TabBarPage(),
           'streamPage': (BuildContext context) => StreamPage(),
           'aceWavePage': (BuildContext context) => ACEWavePage(),
+          'blocPage': (BuildContext context) => BlocPage(),
         });
   }
 }
@@ -89,6 +91,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid('Flutter Stream', 8, Colors.green.withOpacity(0.4)),
                 SizedBox(width: 4),
                 _itemWid('ACEWave 波浪', 9, Colors.lightGreen.withOpacity(0.4))
+              ]),
+              Row(children: <Widget>[
+                _itemWid('Bloc Page', 10, Colors.indigoAccent.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 11, Colors.grey.withOpacity(0.4))
               ])
             ])),
         floatingActionButton: FloatingActionButton(
@@ -142,6 +149,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 9:
         Navigator.pushNamed(context, 'aceWavePage');
+        break;
+      case 10:
+        Navigator.pushNamed(context, 'blocPage');
         break;
     }
   }

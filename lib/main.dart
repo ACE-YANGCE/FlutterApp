@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
+import 'package:flutter_app/page/overlay_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
 import 'package:flutter_app/page/animated_cross_fade_page.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           'streamPage': (BuildContext context) => StreamPage(),
           'aceWavePage': (BuildContext context) => ACEWavePage(),
           'blocPage': (BuildContext context) => BlocPage(),
+          'overlayPage': (BuildContext context) => OverLayPage(),
         });
   }
 }
@@ -95,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('Bloc Page', 10, Colors.indigoAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 11, Colors.grey.withOpacity(0.4))
+                _itemWid('Overlay Page', 11, Colors.grey.withOpacity(0.4))
               ])
             ])),
         floatingActionButton: FloatingActionButton(
@@ -152,6 +154,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 10:
         Navigator.pushNamed(context, 'blocPage');
+        break;
+      case 11:
+        Navigator.pushNamed(context, 'overlayPage');
         break;
     }
   }

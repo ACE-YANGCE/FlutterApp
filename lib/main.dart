@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
+import 'package:flutter_app/page/future_page.dart';
 import 'package:flutter_app/page/overlay_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
           'aceWavePage': (BuildContext context) => ACEWavePage(),
           'blocPage': (BuildContext context) => BlocPage(),
           'overlayPage': (BuildContext context) => OverLayPage(),
+          'futurePage': (BuildContext context) => FuturePage(),
         });
   }
 }
@@ -98,7 +100,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid('Bloc Page', 10, Colors.indigoAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
                 _itemWid('Overlay Page', 11, Colors.grey.withOpacity(0.4))
-              ])
+              ]),
+              Row(children: <Widget>[
+                _itemWid('Future Page', 12, Colors.orange.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 13, Colors.deepOrangeAccent.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -157,6 +164,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 11:
         Navigator.pushNamed(context, 'overlayPage');
+        break;
+      case 12:
+        Navigator.pushNamed(context, 'futurePage');
         break;
     }
   }

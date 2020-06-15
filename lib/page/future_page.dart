@@ -60,6 +60,12 @@ class _FuturePageState extends State<FuturePage> {
                 _itemBtn(
                     'Future Wait cleanUp', 16, Colors.blueGrey.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemBtn('Three then()', 17, Colors.orange.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemBtn('Three then02()', 18,
+                    Colors.deepOrangeAccent.withOpacity(0.4))
+              ]),
             ])));
   }
 
@@ -123,6 +129,12 @@ class _FuturePageState extends State<FuturePage> {
         break;
       case 16:
         _futureWait(4);
+        break;
+      case 17:
+        _futureMoreThen();
+        break;
+      case 18:
+        _futureMoreThen02();
         break;
     }
     print('Current Button $index click --> end');
@@ -382,5 +394,38 @@ class _FuturePageState extends State<FuturePage> {
             .whenComplete(() => print('Future.wait() whenComplete!'));
         break;
     }
+  }
+
+  _futureMoreThen() {
+    Future.delayed(Duration(seconds: 3), () {
+      return 'Future.delayed 3s!';
+    }).then((val) {
+      print('Future -> then(1) -> $val');
+      return 'then 1';
+    }).then((val) {
+      print('Future -> then(2) -> $val');
+      return 'then 2';
+    }).then((val) {
+      print('Future -> then(3) -> $val');
+      return 'then 3';
+    }).whenComplete(() => print('Future whenComplete!'));
+  }
+
+  _futureMoreThen02() {
+    Future.delayed(Duration(seconds: 3), () {
+      return 'Future.delayed 3s!';
+    }).then((val) {
+      print('Future -> then(1) -> $val');
+      return Future.delayed(Duration(seconds: 2), () {
+        return 'Future.delayed 2s!';
+      }).then((val) {
+        print('Future -> then(2) -> $val');
+        return Future.delayed(Duration(seconds: 2), () {
+          return 'Future.delayed 2s!';
+        }).then((val) {
+          print('Future -> then(3) -> $val');
+        });
+      });
+    }).whenComplete(() => print('Future whenComplete!'));
   }
 }

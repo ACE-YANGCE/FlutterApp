@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
+import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
 import 'package:flutter_app/page/future_page.dart';
 import 'package:flutter_app/page/overlay_page.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
           'blocPage': (BuildContext context) => BlocPage(),
           'overlayPage': (BuildContext context) => OverLayPage(),
           'futurePage': (BuildContext context) => FuturePage(),
+          'asyncPage': (BuildContext context) => AsyncPage(),
         });
   }
 }
@@ -104,7 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('Future Page', 12, Colors.orange.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 13, Colors.deepOrangeAccent.withOpacity(0.4))
+                _itemWid(
+                    'Async Page', 13, Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -167,6 +170,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 12:
         Navigator.pushNamed(context, 'futurePage');
+        break;
+      case 13:
+        Navigator.pushNamed(context, 'asyncPage');
         break;
     }
   }

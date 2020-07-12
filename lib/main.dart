@@ -5,6 +5,7 @@ import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
 import 'package:flutter_app/page/future_page.dart';
 import 'package:flutter_app/page/isolate_page.dart';
+import 'package:flutter_app/page/media_query_page.dart';
 import 'package:flutter_app/page/overlay_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
           'futurePage': (BuildContext context) => FuturePage(),
           'asyncPage': (BuildContext context) => AsyncPage(),
           'isolatePage': (BuildContext context) => IsolatePage(),
+          'mediaQueryPage': (BuildContext context) => MediaQueryPage(),
         });
   }
 }
@@ -114,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('Isolate Page', 14, Colors.redAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 16, Colors.red.withOpacity(0.4))
+                _itemWid('MediaQuery Page', 15, Colors.red.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -183,6 +185,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 14:
         Navigator.pushNamed(context, 'isolatePage');
+        break;
+      case 15:
+        Navigator.pushNamed(context, 'mediaQueryPage');
         break;
     }
   }

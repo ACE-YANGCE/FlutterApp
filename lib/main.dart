@@ -8,6 +8,7 @@ import 'package:flutter_app/page/isolate_page.dart';
 import 'package:flutter_app/page/media_query_page.dart';
 import 'package:flutter_app/page/overlay_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
+import 'package:flutter_app/page/task_queue_page.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
 import 'package:flutter_app/page/animated_cross_fade_page.dart';
 import 'package:flutter_app/page/animated_switcher_page.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
           'asyncPage': (BuildContext context) => AsyncPage(),
           'isolatePage': (BuildContext context) => IsolatePage(),
           'mediaQueryPage': (BuildContext context) => MediaQueryPage(),
+          'taskQueuePage': (BuildContext context) => TaskQueuePage(),
         });
   }
 }
@@ -118,6 +120,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 4),
                 _itemWid('MediaQuery Page', 15, Colors.red.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemWid(
+                    'TaskQueue Page', 16, Colors.pinkAccent.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 17, Colors.deepPurple.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -188,6 +196,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 15:
         Navigator.pushNamed(context, 'mediaQueryPage');
+        break;
+      case 16:
+        Navigator.pushNamed(context, 'taskQueuePage');
         break;
     }
   }

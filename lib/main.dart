@@ -3,6 +3,7 @@ import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
+import 'package:flutter_app/page/draggable_page.dart';
 import 'package:flutter_app/page/future_page.dart';
 import 'package:flutter_app/page/isolate_page.dart';
 import 'package:flutter_app/page/media_query_page.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
           'isolatePage': (BuildContext context) => IsolatePage(),
           'mediaQueryPage': (BuildContext context) => MediaQueryPage(),
           'taskQueuePage': (BuildContext context) => TaskQueuePage(),
+          'draggablePage': (BuildContext context) => DraggablePage(),
         });
   }
 }
@@ -124,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid(
                     'TaskQueue Page', 16, Colors.pinkAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 17, Colors.deepPurple.withOpacity(0.4))
+                _itemWid('拖拽 Draggable', 17, Colors.deepPurple.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -199,6 +201,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 16:
         Navigator.pushNamed(context, 'taskQueuePage');
+        break;
+      case 17:
+        Navigator.pushNamed(context, 'draggablePage');
         break;
     }
   }

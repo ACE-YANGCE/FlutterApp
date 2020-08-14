@@ -3,6 +3,7 @@ import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
+import 'package:flutter_app/page/draggable_grid_page.dart';
 import 'package:flutter_app/page/draggable_page.dart';
 import 'package:flutter_app/page/future_page.dart';
 import 'package:flutter_app/page/isolate_page.dart';
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
           'mediaQueryPage': (BuildContext context) => MediaQueryPage(),
           'taskQueuePage': (BuildContext context) => TaskQueuePage(),
           'draggablePage': (BuildContext context) => DraggablePage(),
+          'draggableGridPage': (BuildContext context) => DraggableGridPage(),
         });
   }
 }
@@ -128,6 +130,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 4),
                 _itemWid('拖拽 Draggable', 17, Colors.deepPurple.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemWid('新闻标签选择器', 18, Colors.blueAccent.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 19, Colors.blueGrey.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -204,6 +211,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 17:
         Navigator.pushNamed(context, 'draggablePage');
+        break;
+      case 18:
+        Navigator.pushNamed(context, 'draggableGridPage');
         break;
     }
   }

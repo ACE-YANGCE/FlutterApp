@@ -7,6 +7,7 @@ import 'package:flutter_app/page/draggable_grid_page.dart';
 import 'package:flutter_app/page/draggable_page.dart';
 import 'package:flutter_app/page/future_page.dart';
 import 'package:flutter_app/page/isolate_page.dart';
+import 'package:flutter_app/page/layout_builder_page.dart';
 import 'package:flutter_app/page/media_query_page.dart';
 import 'package:flutter_app/page/overlay_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
           'taskQueuePage': (BuildContext context) => TaskQueuePage(),
           'draggablePage': (BuildContext context) => DraggablePage(),
           'draggableGridPage': (BuildContext context) => DraggableGridPage(),
+          'layoutBuilderPage': (BuildContext context) => LayoutBuilderPage(),
         });
   }
 }
@@ -133,7 +135,13 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('新闻标签选择器', 18, Colors.blueAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 19, Colors.blueGrey.withOpacity(0.4))
+                _itemWid(
+                    'LayoutBuilder Page', 19, Colors.blueGrey.withOpacity(0.4))
+              ]),
+              Row(children: <Widget>[
+                _itemWid('', 20, Colors.orange.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 21, Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -214,6 +222,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 18:
         Navigator.pushNamed(context, 'draggableGridPage');
+        break;
+      case 19:
+        Navigator.pushNamed(context, 'layoutBuilderPage');
         break;
     }
   }

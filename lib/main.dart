@@ -10,6 +10,7 @@ import 'package:flutter_app/page/isolate_page.dart';
 import 'package:flutter_app/page/layout_builder_page.dart';
 import 'package:flutter_app/page/media_query_page.dart';
 import 'package:flutter_app/page/overlay_page.dart';
+import 'package:flutter_app/page/reorder_list_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/page/task_queue_page.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
           'draggablePage': (BuildContext context) => DraggablePage(),
           'draggableGridPage': (BuildContext context) => DraggableGridPage(),
           'layoutBuilderPage': (BuildContext context) => LayoutBuilderPage(),
+          'reorderListPage': (BuildContext context) => ReorderListPage(),
         });
   }
 }
@@ -139,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'LayoutBuilder Page', 19, Colors.blueGrey.withOpacity(0.4))
               ]),
               Row(children: <Widget>[
-                _itemWid('', 20, Colors.orange.withOpacity(0.4)),
+                _itemWid('拖拽 ListView', 20, Colors.orange.withOpacity(0.4)),
                 SizedBox(width: 4),
                 _itemWid('', 21, Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
@@ -225,6 +227,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 19:
         Navigator.pushNamed(context, 'layoutBuilderPage');
+        break;
+      case 20:
+        Navigator.pushNamed(context, 'reorderListPage');
         break;
     }
   }

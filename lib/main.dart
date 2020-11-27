@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/page/ace_dropdown_page.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/page/async_page.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
           'draggableGridPage': (BuildContext context) => DraggableGridPage(),
           'layoutBuilderPage': (BuildContext context) => LayoutBuilderPage(),
           'reorderListPage': (BuildContext context) => ReorderListPage(),
+          'aceDropdownPage': (BuildContext context) => ACEDropDownPage(),
         });
   }
 }
@@ -143,7 +145,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('拖拽 ListView', 20, Colors.orange.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 21, Colors.deepOrangeAccent.withOpacity(0.4))
+                _itemWid('ACEDropdown 下拉框', 21,
+                    Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -230,6 +233,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 20:
         Navigator.pushNamed(context, 'reorderListPage');
+        break;
+      case 21:
+        Navigator.pushNamed(context, 'aceDropdownPage');
         break;
     }
   }

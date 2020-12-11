@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/ace_dropdown_page.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
+import 'package:flutter_app/page/ace_page_menu_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
@@ -25,7 +26,6 @@ import 'package:flutter_app/page/ace_wave_page.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
           'layoutBuilderPage': (BuildContext context) => LayoutBuilderPage(),
           'reorderListPage': (BuildContext context) => ReorderListPage(),
           'aceDropdownPage': (BuildContext context) => ACEDropDownPage(),
+          'acePageMenuPage': (BuildContext context) => ACEPageMenuPage(),
         });
   }
 }
@@ -148,6 +149,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid('ACEDropdown 下拉框', 21,
                     Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemWid(
+                    'ACEPageMenu Page', 22, Colors.redAccent.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 24, Colors.red.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -236,6 +243,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 21:
         Navigator.pushNamed(context, 'aceDropdownPage');
+        break;
+      case 22:
+        Navigator.pushNamed(context, 'acePageMenuPage');
         break;
     }
   }

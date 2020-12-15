@@ -3,6 +3,7 @@ import 'package:flutter_app/page/ace_dropdown_page.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_page_menu_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
+import 'package:flutter_app/page/animated_builder_page.dart';
 import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
 import 'package:flutter_app/page/draggable_grid_page.dart';
@@ -57,6 +58,8 @@ class MyApp extends StatelessWidget {
           'reorderListPage': (BuildContext context) => ReorderListPage(),
           'aceDropdownPage': (BuildContext context) => ACEDropDownPage(),
           'acePageMenuPage': (BuildContext context) => ACEPageMenuPage(),
+          'animatedBuilderPage': (BuildContext context) =>
+              AnimatedBuilderPage(),
         });
   }
 }
@@ -153,7 +156,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid(
                     'ACEPageMenu Page', 22, Colors.redAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 24, Colors.red.withOpacity(0.4))
+                _itemWid(
+                    'AnimatedBuilder Page', 23, Colors.red.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -246,6 +250,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 22:
         Navigator.pushNamed(context, 'acePageMenuPage');
+        break;
+      case 23:
+        Navigator.pushNamed(context, 'animatedBuilderPage');
         break;
     }
   }

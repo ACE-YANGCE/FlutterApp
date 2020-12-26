@@ -10,4 +10,15 @@ class ScreenUtils {
   static double getScreenWidth() {
     return MediaQueryData.fromWindow(window).size.width;
   }
+
+  static Orientation getOrientation() {
+    Orientation result = MediaQueryData.fromWindow(window)?.orientation;
+    if (result == null) {
+      final Size size = window.physicalSize;
+      result = size.width > size.height
+          ? Orientation.landscape
+          : Orientation.portrait;
+    }
+    return result;
+  }
 }

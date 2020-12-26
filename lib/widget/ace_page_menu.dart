@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/menu/ace_page_bottom_menu.dart';
+import 'package:flutter_app/menu/ace_page_left_menu.dart';
+import 'package:flutter_app/menu/ace_page_top_menu.dart';
+import 'package:flutter_app/menu/menu_enum.dart';
+import 'package:flutter_app/menu/menu_manager.dart';
+import 'package:flutter_app/utils/color_utils.dart';
 import 'package:flutter_app/utils/screen_utils.dart';
 import 'package:flutter_app/widget/ace_menu_delegate.dart';
 
@@ -9,9 +15,18 @@ class ACEPageMenu extends StatelessWidget {
       _isShowRightMenu,
       _isShowMixMenu;
   final AnimationController _controller;
+  final OnMenuItemClicked _menuItemClick;
+  final MenuBottomType _bottomType;
 
-  ACEPageMenu(this._controller, this._isShowTopMenu, this._isShowBottomMenu,
-      this._isShowLeftMenu, this._isShowRightMenu, this._isShowMixMenu);
+  ACEPageMenu(
+      this._controller,
+      this._isShowTopMenu,
+      this._isShowBottomMenu,
+      this._isShowLeftMenu,
+      this._isShowRightMenu,
+      this._isShowMixMenu,
+      this._bottomType,
+      this._menuItemClick);
 
   @override
   Widget build(BuildContext context) {
@@ -30,22 +45,23 @@ class ACEPageMenu extends StatelessWidget {
     Widget _menuWid;
     switch (menuType) {
       case MenuType.MENU_TOP:
-        _menuWid = Opacity(
-            opacity: _isShowTopMenu || _isShowMixMenu ? 1.0 : 0.0,
-            child: _topMenuWid());
+        _menuWid = Offstage(
+            offstage: _isShowTopMenu || _isShowMixMenu ? false : true,
+            child: ACEPageTopMenu(this._menuItemClick));
         break;
       case MenuType.MENU_BOTTOM:
-        _menuWid = Opacity(
-            opacity: _isShowBottomMenu || _isShowMixMenu ? 1.0 : 0.0,
-            child: _bottomMenuWid());
+        _menuWid = Offstage(
+            offstage: _isShowBottomMenu || _isShowMixMenu ? false : true,
+            child: ACEPageBottomMenu(_bottomType, this._menuItemClick));
         break;
       case MenuType.MENU_LEFT:
-        _menuWid = Opacity(
-            opacity: _isShowLeftMenu ? 1.0 : 0.0, child: _leftMenuWid());
+        _menuWid = Offstage(
+            offstage: _isShowLeftMenu ? false : true,
+            child: ACEPageLeftMenu(this._menuItemClick));
         break;
       case MenuType.MENU_RIGHT:
-        _menuWid = Opacity(
-            opacity: _isShowRightMenu ? 1.0 : 0.0, child: _rightMenuWid());
+        _menuWid = Offstage(
+            offstage: _isShowRightMenu ? false : true, child: _rightMenuWid());
         break;
     }
     return AnimatedBuilder(
@@ -54,43 +70,15 @@ class ACEPageMenu extends StatelessWidget {
         builder: (BuildContext context, Widget child) {
           return CustomSingleChildLayout(
               delegate: ACEMenuDelegate(menuType, _controller.value),
-              child: child);
+              child: Offstage(
+                  offstage: _controller.value == 0.0 ? true : false,
+                  child: Opacity(opacity: _controller.value, child: child)));
         });
-  }
-
-  _topMenuWid() {
-    return Container(
-        color: Color(0xF3242424),
-        height: 80.0,
-        child: Column(children: <Widget>[
-          SizedBox(height: 24.0),
-          Row(children: <Widget>[
-            Container(
-                width: 56.0,
-                height: 56.0,
-                child: Center(
-                    child: Icon(Icons.arrow_back_ios, color: Colors.white)))
-          ])
-        ]));
-  }
-
-  _bottomMenuWid() {
-    return Container(
-        color: Color(0xF3242424),
-        height: 180.0,
-        child: Row(children: <Widget>[]));
-  }
-
-  _leftMenuWid() {
-    return Container(
-        color: Color(0xF3242424),
-        height: ScreenUtils.getScreenHeight(),
-        child: Row(children: <Widget>[]));
   }
 
   _rightMenuWid() {
     return Container(
-        color: Color(0xF3245424),
+        color: ColorUtils.menuBgColor,
         height: ScreenUtils.getScreenHeight(),
         child: Row(children: <Widget>[]));
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/menu/menu_enum.dart';
 import 'package:flutter_app/utils/screen_utils.dart';
 
 class ACEMenuDelegate extends SingleChildLayoutDelegate {
@@ -16,7 +17,9 @@ class ACEMenuDelegate extends SingleChildLayoutDelegate {
               : constraints.maxWidth,
       maxWidth:
           (_menuType == MenuType.MENU_LEFT || _menuType == MenuType.MENU_RIGHT)
-              ? ScreenUtils.getScreenWidth() * 0.75
+              ? (ScreenUtils.getOrientation() == Orientation.portrait
+                  ? ScreenUtils.getScreenWidth() * 0.75
+                  : ScreenUtils.getScreenWidth() * 0.35)
               : constraints.maxWidth,
       minHeight: 0.0,
       maxHeight:
@@ -42,6 +45,12 @@ class ACEMenuDelegate extends SingleChildLayoutDelegate {
       case MenuType.MENU_RIGHT:
         _offsetX = size.width - childSize.width * _controllerValue;
         break;
+      case MenuType.MENU_MIX:
+        // TODO: Handle this case.
+        break;
+      case MenuType.MENU_CLOSE:
+        // TODO: Handle this case.
+        break;
     }
     return Offset(_offsetX, _offsetY);
   }
@@ -51,5 +60,3 @@ class ACEMenuDelegate extends SingleChildLayoutDelegate {
     return _controllerValue != oldDelegate._controllerValue;
   }
 }
-
-enum MenuType { MENU_TOP, MENU_BOTTOM, MENU_LEFT, MENU_RIGHT }

@@ -4,10 +4,29 @@ import 'package:flutter_app/menu/menu_manager.dart';
 import 'package:flutter_app/utils/color_utils.dart';
 import 'package:flutter_app/utils/screen_utils.dart';
 
-class ACEPageLeftMenu extends StatelessWidget {
+class ACEPageLeftMenu extends StatefulWidget {
   final OnMenuItemClicked menuItemClick;
 
   ACEPageLeftMenu(this.menuItemClick);
+
+  @override
+  State<StatefulWidget> createState() => _ACEPageLeftMenuState();
+}
+
+class _ACEPageLeftMenuState extends State<ACEPageLeftMenu> {
+  var _currentIndex = 0;
+  PageController _controller;
+
+  void initState() {
+    super.initState();
+    _controller = PageController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,20 +72,42 @@ class ACEPageLeftMenu extends StatelessWidget {
                         children: <Widget>[
                           Text('目录',
                               style: TextStyle(
-                                  fontSize: 16.0, color: Colors.white)),
-                          Icon(Icons.arrow_downward, color: Colors.white)
+                                  fontSize: 16.0,
+                                  color: _currentIndex == 0
+                                      ? Colors.yellow
+                                      : Colors.white)),
+                          Icon(Icons.arrow_downward,
+                              color: _currentIndex == 0
+                                  ? Colors.yellow
+                                  : Colors.white)
                         ]),
-                    onTap: () =>
-                        menuItemClick(MenuItemType.MENU_LEFT_CATALOG, null)),
+                    onTap: () {
+                      widget.menuItemClick(
+                          MenuItemType.MENU_LEFT_CATALOG, null);
+                      setState(() {});
+                      _currentIndex = 0;
+                      _controller.animateToPage(0,
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.easeInOut);
+                    }),
                 flex: 1),
             Expanded(
                 child: GestureDetector(
                     child: Center(
                         child: Text('书签',
                             style: TextStyle(
-                                fontSize: 16.0, color: Colors.white))),
-                    onTap: () =>
-                        menuItemClick(MenuItemType.MENU_LEFT_TAG, null)),
+                                fontSize: 16.0,
+                                color: _currentIndex == 1
+                                    ? Colors.yellow
+                                    : Colors.white))),
+                    onTap: () {
+                      setState(() {});
+                      _currentIndex = 1;
+                      _controller.animateToPage(1,
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.easeInOut);
+                      widget.menuItemClick(MenuItemType.MENU_LEFT_TAG, null);
+                    }),
                 flex: 1)
           ]))
     ]);
@@ -75,9 +116,14 @@ class ACEPageLeftMenu extends StatelessWidget {
   _leftMenuPage() {
     return Expanded(
         child: PageView.builder(
+            controller: _controller,
             itemBuilder: (context, position) =>
                 _leftItemPage(context, position),
-            itemCount: 2));
+            itemCount: 2,
+            onPageChanged: (position) {
+              setState(() {});
+              _currentIndex = position;
+            }));
   }
 
   _leftItemPage(context, position) {
@@ -90,11 +136,15 @@ class ACEPageLeftMenu extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                       child: Padding(
-                          padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
+                          padding: EdgeInsets.all(10.0),
                           child: Row(children: <Widget>[
                             Expanded(
                                 child: Text(
-                                    '当前 item = 当前 item = 当前 item =${index + 1}',
+                                    position == 0
+                                        ? '目录 Tab 下当前 item '
+                                            '= ${index + 1}'
+                                        : '书签 Tab 下当前 item '
+                                            '= ${index + 1}',
                                     style: TextStyle(
                                         fontSize: 16.0, color: Colors.white))),
                             Padding(
@@ -102,7 +152,7 @@ class ACEPageLeftMenu extends StatelessWidget {
                                     size: 14.0, color: Colors.white),
                                 padding: EdgeInsets.only(left: 10.0))
                           ])),
-                      onTap: () => menuItemClick(
+                      onTap: () => widget.menuItemClick(
                           MenuItemType.MENU_LEFT_CATALOG_ITEM,
                           '当前 Catalog item = ${index + 1}'));
                 })));

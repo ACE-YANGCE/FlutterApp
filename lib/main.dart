@@ -7,6 +7,7 @@ import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/page/animated_builder_page.dart';
 import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
+import 'package:flutter_app/page/database_page.dart';
 import 'package:flutter_app/page/draggable_grid_page.dart';
 import 'package:flutter_app/page/draggable_page.dart';
 import 'package:flutter_app/page/future_page.dart';
@@ -64,6 +65,7 @@ class MyApp extends StatelessWidget {
               AnimatedBuilderPage(),
           'pageViewPage': (BuildContext context) => PageViewPage(),
           'aceRadioPage': (BuildContext context) => ACERadioPage(),
+          'databasePage': (BuildContext context) => DatabasePage(),
         });
   }
 }
@@ -168,6 +170,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 4),
                 _itemWid('ACERadio 单选框', 25, Colors.lightGreen.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemWid(
+                    'Database Page', 26, Colors.indigoAccent.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 27, Colors.grey.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -268,6 +276,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 25:
         Navigator.pushNamed(context, 'aceRadioPage');
+        break;
+      case 26:
+        Navigator.pushNamed(context, 'databasePage');
         break;
     }
   }

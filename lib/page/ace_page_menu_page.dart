@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/menu/menu_enum.dart';
 import 'package:flutter_app/menu/menu_gesture_recognizer.dart';
-import 'package:flutter_app/utils/common_line_painter.dart';
+import 'package:flutter_app/canvas/common_line_painter.dart';
 import 'package:flutter_app/utils/screen_utils.dart';
 import 'package:flutter_app/widget/ace_page_menu.dart';
 

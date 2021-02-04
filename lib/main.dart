@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/page/ace_dropdown_page.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_page_menu_page.dart';
+import 'package:flutter_app/page/ace_pie_page.dart';
 import 'package:flutter_app/page/ace_radio_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/page/animated_builder_page.dart';
@@ -19,6 +20,7 @@ import 'package:flutter_app/page/page_view_page.dart';
 import 'package:flutter_app/page/reorder_list_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/page/task_queue_page.dart';
+import 'package:flutter_app/widget/ace_pie_widget.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
 import 'package:flutter_app/page/animated_cross_fade_page.dart';
 import 'package:flutter_app/page/animated_switcher_page.dart';
@@ -66,6 +68,7 @@ class MyApp extends StatelessWidget {
           'pageViewPage': (BuildContext context) => PageViewPage(),
           'aceRadioPage': (BuildContext context) => ACERadioPage(),
           'databasePage': (BuildContext context) => DatabasePage(),
+          'acePiePage': (BuildContext context) => ACEPiePage(),
         });
   }
 }
@@ -174,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid(
                     'Database Page', 26, Colors.indigoAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 27, Colors.grey.withOpacity(0.4))
+                _itemWid('ACEPie 饼状图', 27, Colors.grey.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -279,6 +282,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 26:
         Navigator.pushNamed(context, 'databasePage');
+        break;
+      case 27:
+        Navigator.pushNamed(context, 'acePiePage');
         break;
     }
   }

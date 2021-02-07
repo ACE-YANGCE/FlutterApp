@@ -14,6 +14,7 @@ import 'package:flutter_app/page/draggable_page.dart';
 import 'package:flutter_app/page/future_page.dart';
 import 'package:flutter_app/page/isolate_page.dart';
 import 'package:flutter_app/page/layout_builder_page.dart';
+import 'package:flutter_app/page/math_page.dart';
 import 'package:flutter_app/page/media_query_page.dart';
 import 'package:flutter_app/page/overlay_page.dart';
 import 'package:flutter_app/page/page_view_page.dart';
@@ -69,6 +70,7 @@ class MyApp extends StatelessWidget {
           'aceRadioPage': (BuildContext context) => ACERadioPage(),
           'databasePage': (BuildContext context) => DatabasePage(),
           'acePiePage': (BuildContext context) => ACEPiePage(),
+          'mathPage': (BuildContext context) => MathPage(),
         });
   }
 }
@@ -179,6 +181,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 4),
                 _itemWid('ACEPie 饼状图', 27, Colors.grey.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemWid('dart:math', 28, Colors.orange.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 29, Colors.deepOrangeAccent.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -285,6 +292,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 27:
         Navigator.pushNamed(context, 'acePiePage');
+        break;
+      case 28:
+        Navigator.pushNamed(context, 'mathPage');
         break;
     }
   }

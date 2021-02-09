@@ -11,10 +11,11 @@ const _pieRadius = 110.0;
 
 class ACEPiePainter extends CustomPainter {
   List<Map<BillType, double>> _listData = [];
+  var _rotateAngle = 0.0;
   double _sum = 0.0;
   String _subName = '';
 
-  ACEPiePainter(this._listData);
+  ACEPiePainter(this._listData, this._rotateAngle);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -35,21 +36,24 @@ class ACEPiePainter extends CustomPainter {
     ParagraphConstraints _paragraph =
         ParagraphConstraints(width: size.width * 0.5);
     _sumData();
+    if (_rotateAngle == null) {
+      _rotateAngle = 0.0;
+    }
     if (_listData != null) {
       for (int i = 0; i < _listData.length; i++) {
         startAngle += sweepAngle;
         sweepAngle = _listData[i].values.first * 2 * PI / _sum;
-        canvas.drawArc(_circle, startAngle, sweepAngle, true,
+        canvas.drawArc(_circle, startAngle + _rotateAngle, sweepAngle, true,
             _paint..color = _subPaint(_listData[i].keys.first));
 
         if (sweepAngle >= PI / 6) {
           canvas.translate(size.width * 0.5, size.height * 0.5);
-          canvas.rotate(startAngle + sweepAngle * 0.5);
+          canvas.rotate(startAngle + sweepAngle * 0.5 + _rotateAngle);
           Paragraph paragraph = (_pb..addText(_subName)).build()
             ..layout(_paragraph);
           canvas.drawParagraph(
               paragraph, Offset(50.0, 0.0 - paragraph.height * 0.5));
-          canvas.rotate(-startAngle - sweepAngle * 0.5);
+          canvas.rotate(-startAngle - sweepAngle * 0.5 - _rotateAngle);
           canvas.translate(-size.width * 0.5, -size.height * 0.5);
         }
       }

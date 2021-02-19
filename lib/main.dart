@@ -3,6 +3,7 @@ import 'package:flutter_app/page/ace_dropdown_page.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_page_menu_page.dart';
 import 'package:flutter_app/page/ace_pie_page.dart';
+import 'package:flutter_app/page/ace_progress_page.dart';
 import 'package:flutter_app/page/ace_radio_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/page/animated_builder_page.dart';
@@ -71,6 +72,7 @@ class MyApp extends StatelessWidget {
           'databasePage': (BuildContext context) => DatabasePage(),
           'acePiePage': (BuildContext context) => ACEPiePage(),
           'mathPage': (BuildContext context) => MathPage(),
+          'aceProgressPage': (BuildContext context) => ACEProgressPage(),
         });
   }
 }
@@ -184,7 +186,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('dart:math', 28, Colors.orange.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 29, Colors.deepOrangeAccent.withOpacity(0.4))
+                _itemWid('ACEProgress Page', 29,
+                    Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -295,6 +298,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 28:
         Navigator.pushNamed(context, 'mathPage');
+        break;
+      case 29:
+        Navigator.pushNamed(context, 'aceProgressPage');
         break;
     }
   }

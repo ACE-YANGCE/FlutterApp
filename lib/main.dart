@@ -19,6 +19,7 @@ import 'package:flutter_app/page/math_page.dart';
 import 'package:flutter_app/page/media_query_page.dart';
 import 'package:flutter_app/page/overlay_page.dart';
 import 'package:flutter_app/page/page_view_page.dart';
+import 'package:flutter_app/page/paragraph_page.dart';
 import 'package:flutter_app/page/reorder_list_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/page/task_queue_page.dart';
@@ -73,6 +74,7 @@ class MyApp extends StatelessWidget {
           'acePiePage': (BuildContext context) => ACEPiePage(),
           'mathPage': (BuildContext context) => MathPage(),
           'aceProgressPage': (BuildContext context) => ACEProgressPage(),
+          'paragraphPage': (BuildContext context) => ParagraphPage(),
         });
   }
 }
@@ -189,6 +191,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid('ACEProgress Page', 29,
                     Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemWid('Canvas.drawParagraph', 30,
+                    Colors.redAccent.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 31, Colors.red.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -301,6 +309,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 29:
         Navigator.pushNamed(context, 'aceProgressPage');
+        break;
+      case 30:
+        Navigator.pushNamed(context, 'paragraphPage');
         break;
     }
   }

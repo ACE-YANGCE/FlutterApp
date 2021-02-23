@@ -257,3 +257,48 @@ class ParagraphPainter extends CustomPainter {
     return _textAlign;
   }
 }
+
+class ACETextPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final textStyle = TextStyle(color: Colors.black, fontSize: 26);
+    final textSpan = TextSpan(text: 'Hello Flutter 阿策小和尚', style: textStyle);
+    final textPainter =
+        TextPainter(text: textSpan, textDirection: TextDirection.ltr);
+    textPainter.layout(minWidth: 0, maxWidth: size.width - 100);
+    final offset = Offset(50, 50);
+    textPainter.paint(canvas, offset);
+
+    TextPainter(
+        text: TextSpan(
+            text: '多种样式，如：',
+            style: TextStyle(fontSize: 16.0, color: Colors.black),
+            children: <TextSpan>[
+              TextSpan(
+                  text: '红色',
+                  style: TextStyle(fontSize: 18.0, color: Colors.red)),
+              TextSpan(
+                  text: '绿色',
+                  style: TextStyle(fontSize: 18.0, color: Colors.green)),
+              TextSpan(
+                  text: '蓝色',
+                  style: TextStyle(fontSize: 18.0, color: Colors.blue)),
+              TextSpan(
+                  text: '白色',
+                  style: TextStyle(fontSize: 18.0, color: Colors.white)),
+              TextSpan(
+                  text: '\n紫色',
+                  style: TextStyle(fontSize: 18.0, color: Colors.purple)),
+              TextSpan(
+                  text: '黑色',
+                  style: TextStyle(fontSize: 18.0, color: Colors.black))
+            ]),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center)
+      ..layout(minWidth: 0, maxWidth: size.width - 100)
+      ..paint(canvas, Offset(50.0, 150.0));
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => true;
+}

@@ -20,6 +20,7 @@ import 'package:flutter_app/page/media_query_page.dart';
 import 'package:flutter_app/page/overlay_page.dart';
 import 'package:flutter_app/page/page_view_page.dart';
 import 'package:flutter_app/page/paragraph_page.dart';
+import 'package:flutter_app/page/physical_model_page.dart';
 import 'package:flutter_app/page/reorder_list_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/page/task_queue_page.dart';
@@ -75,6 +76,7 @@ class MyApp extends StatelessWidget {
           'mathPage': (BuildContext context) => MathPage(),
           'aceProgressPage': (BuildContext context) => ACEProgressPage(),
           'paragraphPage': (BuildContext context) => ParagraphPage(),
+          'physicalModelPage': (BuildContext context) => PhysicalModelPage(),
         });
   }
 }
@@ -195,7 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid('Canvas.drawParagraph', 30,
                     Colors.redAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 31, Colors.red.withOpacity(0.4))
+                _itemWid('Physical 裁切', 31, Colors.red.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -312,6 +314,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 30:
         Navigator.pushNamed(context, 'paragraphPage');
+        break;
+      case 31:
+        Navigator.pushNamed(context, 'physicalModelPage');
         break;
     }
   }

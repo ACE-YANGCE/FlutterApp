@@ -10,6 +10,7 @@ import 'package:flutter_app/page/animated_builder_page.dart';
 import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
 import 'package:flutter_app/page/database_page.dart';
+import 'package:flutter_app/page/dismissible_page.dart';
 import 'package:flutter_app/page/draggable_grid_page.dart';
 import 'package:flutter_app/page/draggable_page.dart';
 import 'package:flutter_app/page/future_page.dart';
@@ -77,6 +78,7 @@ class MyApp extends StatelessWidget {
           'aceProgressPage': (BuildContext context) => ACEProgressPage(),
           'paragraphPage': (BuildContext context) => ParagraphPage(),
           'physicalModelPage': (BuildContext context) => PhysicalModelPage(),
+          'dismissiblePage': (BuildContext context) => DismissiblePage(),
         });
   }
 }
@@ -199,6 +201,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 4),
                 _itemWid('Physical 裁切', 31, Colors.red.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemWid('Dismissible Page', 32, Colors.green.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 33, Colors.lightGreen.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -317,6 +324,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 31:
         Navigator.pushNamed(context, 'physicalModelPage');
+        break;
+      case 32:
+        Navigator.pushNamed(context, 'dismissiblePage');
         break;
     }
   }

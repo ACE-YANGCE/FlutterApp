@@ -23,6 +23,7 @@ import 'package:flutter_app/page/page_view_page.dart';
 import 'package:flutter_app/page/paragraph_page.dart';
 import 'package:flutter_app/page/physical_model_page.dart';
 import 'package:flutter_app/page/reorder_list_page.dart';
+import 'package:flutter_app/page/shader_mask_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/page/task_queue_page.dart';
 import 'package:flutter_app/widget/ace_pie_widget.dart';
@@ -79,6 +80,7 @@ class MyApp extends StatelessWidget {
           'paragraphPage': (BuildContext context) => ParagraphPage(),
           'physicalModelPage': (BuildContext context) => PhysicalModelPage(),
           'dismissiblePage': (BuildContext context) => DismissiblePage(),
+          'shaderMaskPage': (BuildContext context) => ShaderMaskPage(),
         });
   }
 }
@@ -204,7 +206,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('Dismissible Page', 32, Colors.green.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 33, Colors.lightGreen.withOpacity(0.4))
+                _itemWid(
+                    'ShaderMask 着色器', 33, Colors.lightGreen.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -327,6 +330,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 32:
         Navigator.pushNamed(context, 'dismissiblePage');
+        break;
+      case 33:
+        Navigator.pushNamed(context, 'shaderMaskPage');
         break;
     }
   }

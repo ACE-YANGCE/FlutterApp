@@ -26,6 +26,17 @@ class _ACEFrameAnimatedState extends State<ACEFrameAnimated> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    if (_picList != null) {
+      _picList.clear();
+    }
+    if (widget != null && widget.picList != null) {
+      widget.picList.clear();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) => _buildWid;
 
   _framePicList() async {

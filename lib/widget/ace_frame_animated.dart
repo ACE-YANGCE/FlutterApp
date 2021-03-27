@@ -40,15 +40,17 @@ class _ACEFrameAnimatedState extends State<ACEFrameAnimated> {
   Widget build(BuildContext context) => _buildWid;
 
   _framePicList() async {
-    setState(() {
-      _index = _index % _picList.length;
-      _buildWid = Container(
-          child: _picList[_index].keys.toList()[0] == ACEFramePicType.asset
-              ? Image.asset(_picList[_index].values.toList()[0])
-              : Image.network(_picList[_index].values.toList()[0]));
-      _index++;
-    });
-    await Future.delayed(_duration, () => _framePicList());
+    if (mounted) {
+      setState(() {
+        _index = _index % _picList.length;
+        _buildWid = Container(
+            child: _picList[_index].keys.toList()[0] == ACEFramePicType.asset
+                ? Image.asset(_picList[_index].values.toList()[0])
+                : Image.network(_picList[_index].values.toList()[0]));
+        _index++;
+      });
+      await Future.delayed(_duration, () => _framePicList());
+    }
   }
 }
 

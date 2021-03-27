@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/ace_dropdown_page.dart';
+import 'package:flutter_app/page/ace_frame_animated_page.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_page_menu_page.dart';
 import 'package:flutter_app/page/ace_pie_page.dart';
@@ -81,6 +82,8 @@ class MyApp extends StatelessWidget {
           'physicalModelPage': (BuildContext context) => PhysicalModelPage(),
           'dismissiblePage': (BuildContext context) => DismissiblePage(),
           'shaderMaskPage': (BuildContext context) => ShaderMaskPage(),
+          'aceFrameAnimatedPage': (BuildContext context) =>
+              ACEFrameAnimatedPage(),
         });
   }
 }
@@ -209,6 +212,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid(
                     'ShaderMask 着色器', 33, Colors.lightGreen.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemWid('自定义帧动画', 34, Colors.indigoAccent.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 35, Colors.grey.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -333,6 +341,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 33:
         Navigator.pushNamed(context, 'shaderMaskPage');
+        break;
+      case 34:
+        Navigator.pushNamed(context, 'aceFrameAnimatedPage');
         break;
     }
   }

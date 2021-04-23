@@ -25,6 +25,7 @@ import 'package:flutter_app/page/paragraph_page.dart';
 import 'package:flutter_app/page/physical_model_page.dart';
 import 'package:flutter_app/page/reorder_list_page.dart';
 import 'package:flutter_app/page/shader_mask_page.dart';
+import 'package:flutter_app/page/slider_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/page/task_queue_page.dart';
 import 'package:flutter_app/widget/ace_pie_widget.dart';
@@ -84,6 +85,7 @@ class MyApp extends StatelessWidget {
           'shaderMaskPage': (BuildContext context) => ShaderMaskPage(),
           'aceFrameAnimatedPage': (BuildContext context) =>
               ACEFrameAnimatedPage(),
+          'sliderPage': (BuildContext context) => SliderPage(),
         });
   }
 }
@@ -215,7 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('自定义帧动画', 34, Colors.indigoAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 35, Colors.grey.withOpacity(0.4))
+                _itemWid('Slider 滑动条', 35, Colors.grey.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -344,6 +346,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 34:
         Navigator.pushNamed(context, 'aceFrameAnimatedPage');
+        break;
+      case 35:
+        Navigator.pushNamed(context, 'sliderPage');
         break;
     }
   }

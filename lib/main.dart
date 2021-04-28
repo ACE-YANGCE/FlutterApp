@@ -24,6 +24,7 @@ import 'package:flutter_app/page/page_view_page.dart';
 import 'package:flutter_app/page/paragraph_page.dart';
 import 'package:flutter_app/page/physical_model_page.dart';
 import 'package:flutter_app/page/reorder_list_page.dart';
+import 'package:flutter_app/page/series_circle_page.dart';
 import 'package:flutter_app/page/shader_mask_page.dart';
 import 'package:flutter_app/page/slider_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
@@ -86,6 +87,7 @@ class MyApp extends StatelessWidget {
           'aceFrameAnimatedPage': (BuildContext context) =>
               ACEFrameAnimatedPage(),
           'sliderPage': (BuildContext context) => SliderPage(),
+          'seriesCirclePage': (BuildContext context) => SeriesCirclePage(),
         });
   }
 }
@@ -219,6 +221,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 4),
                 _itemWid('Slider 滑动条', 35, Colors.grey.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemWid('系列头像', 36, Colors.orange.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 37, Colors.deepOrangeAccent.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -349,6 +356,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 35:
         Navigator.pushNamed(context, 'sliderPage');
+        break;
+      case 36:
+        Navigator.pushNamed(context, 'seriesCirclePage');
         break;
     }
   }

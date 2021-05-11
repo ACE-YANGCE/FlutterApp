@@ -15,6 +15,7 @@ import 'package:flutter_app/page/dismissible_page.dart';
 import 'package:flutter_app/page/draggable_grid_page.dart';
 import 'package:flutter_app/page/draggable_page.dart';
 import 'package:flutter_app/page/future_page.dart';
+import 'package:flutter_app/page/group_list_page.dart';
 import 'package:flutter_app/page/isolate_page.dart';
 import 'package:flutter_app/page/layout_builder_page.dart';
 import 'package:flutter_app/page/math_page.dart';
@@ -88,6 +89,7 @@ class MyApp extends StatelessWidget {
               ACEFrameAnimatedPage(),
           'sliderPage': (BuildContext context) => SliderPage(),
           'seriesCirclePage': (BuildContext context) => SeriesCirclePage(),
+          'groupListPage': (BuildContext context) => GroupListPage(),
         });
   }
 }
@@ -224,7 +226,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('系列头像', 36, Colors.orange.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 37, Colors.deepOrangeAccent.withOpacity(0.4))
+                _itemWid('二级分组列表', 37, Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -359,6 +361,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 36:
         Navigator.pushNamed(context, 'seriesCirclePage');
+        break;
+      case 37:
+        Navigator.pushNamed(context, 'groupListPage');
         break;
     }
   }

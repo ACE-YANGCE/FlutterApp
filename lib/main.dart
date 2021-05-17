@@ -11,6 +11,7 @@ import 'package:flutter_app/page/animated_builder_page.dart';
 import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
 import 'package:flutter_app/page/database_page.dart';
+import 'package:flutter_app/page/dialog_page.dart';
 import 'package:flutter_app/page/dismissible_page.dart';
 import 'package:flutter_app/page/draggable_grid_page.dart';
 import 'package:flutter_app/page/draggable_page.dart';
@@ -90,6 +91,7 @@ class MyApp extends StatelessWidget {
           'sliderPage': (BuildContext context) => SliderPage(),
           'seriesCirclePage': (BuildContext context) => SeriesCirclePage(),
           'groupListPage': (BuildContext context) => GroupListPage(),
+          'dialogPage': (BuildContext context) => DialogPage(),
         });
   }
 }
@@ -228,6 +230,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 4),
                 _itemWid('二级分组列表', 37, Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemWid('自定义 Dialog', 38, Colors.redAccent.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 39, Colors.red.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -364,6 +371,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 37:
         Navigator.pushNamed(context, 'groupListPage');
+        break;
+      case 38:
+        Navigator.pushNamed(context, 'dialogPage');
         break;
     }
   }

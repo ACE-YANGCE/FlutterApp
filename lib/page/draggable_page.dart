@@ -76,8 +76,8 @@ class _DraggablePageState extends State<DraggablePage> {
         setState(() {
           _dragState = true;
         });
-      }, onLeave: (String data) {
-        print('DragTarget --> onLeave --> $data');
+        // }, onLeave: (String data) {
+        //   print('DragTarget --> onLeave --> $data');
       }, onWillAccept: (String data) {
         print('DragTarget --> onWillAccept --> $data');
         return true;

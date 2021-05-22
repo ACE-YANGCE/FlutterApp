@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/ace_dropdown_page.dart';
 import 'package:flutter_app/page/ace_frame_animated_page.dart';
+import 'package:flutter_app/page/ace_icon_page.dart';
 import 'package:flutter_app/page/ace_marquee_page.dart';
 import 'package:flutter_app/page/ace_page_menu_page.dart';
 import 'package:flutter_app/page/ace_pie_page.dart';
@@ -92,6 +93,7 @@ class MyApp extends StatelessWidget {
           'seriesCirclePage': (BuildContext context) => SeriesCirclePage(),
           'groupListPage': (BuildContext context) => GroupListPage(),
           'dialogPage': (BuildContext context) => DialogPage(),
+          'aceIconPage': (BuildContext context) => ACEIconPage(),
         });
   }
 }
@@ -233,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('自定义 Dialog', 38, Colors.redAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 39, Colors.red.withOpacity(0.4))
+                _itemWid('ACE ICON 图标库', 39, Colors.red.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -374,6 +376,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 38:
         Navigator.pushNamed(context, 'dialogPage');
+        break;
+      case 39:
+        Navigator.pushNamed(context, 'aceIconPage');
         break;
     }
   }

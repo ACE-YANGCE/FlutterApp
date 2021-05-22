@@ -50,6 +50,9 @@ flutter:
    - family: DancingScript
      fonts:
        - asset: assets/DancingScript-Regular.ttf
+   - family: ACE_ICON
+     fonts:
+       - asset: images/ACE_ICON.ttf
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

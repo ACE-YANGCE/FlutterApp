@@ -139,7 +139,7 @@ class _DropdownMenuItemButtonState<T>
 
   static final Map<LogicalKeySet, Intent> _webShortcuts =
       <LogicalKeySet, Intent>{
-    LogicalKeySet(LogicalKeyboardKey.enter): const Intent(SelectAction.key)
+    // LogicalKeySet(LogicalKeyboardKey.enter): const Intent(SelectAction.key)
   };
 
   @override
@@ -645,7 +645,8 @@ class _DropdownButtonState<T> extends State<ACEDropdownButton<T>>
 
   FocusNode get focusNode => widget.focusNode ?? _internalNode;
   bool _hasPrimaryFocus = false;
-  Map<LocalKey, ActionFactory> _actionMap;
+  // Map<LocalKey, ActionFactory> _actionMap;
+  Map<Type, Action<Intent>> _actionMap;
   FocusHighlightMode _focusHighlightMode;
 
   FocusNode _createFocusNode() {
@@ -659,10 +660,10 @@ class _DropdownButtonState<T> extends State<ACEDropdownButton<T>>
     if (widget.focusNode == null) {
       _internalNode ??= _createFocusNode();
     }
-    _actionMap = <LocalKey, ActionFactory>{
-      SelectAction.key: _createAction,
-      if (!kIsWeb) ActivateAction.key: _createAction,
-    };
+    // _actionMap = <LocalKey, ActionFactory>{
+    //   SelectAction.key: _createAction,
+    //   if (!kIsWeb) ActivateAction.key: _createAction,
+    // };
     focusNode.addListener(_handleFocusChanged);
     final FocusManager focusManager = WidgetsBinding.instance.focusManager;
     _focusHighlightMode = focusManager.highlightMode;
@@ -777,10 +778,10 @@ class _DropdownButtonState<T> extends State<ACEDropdownButton<T>>
   }
 
   Action _createAction() {
-    return CallbackAction(ActivateAction.key,
-        onInvoke: (FocusNode node, Intent intent) {
-      _handleTap();
-    });
+    // return CallbackAction(ActivateAction.key,
+    //     onInvoke: (FocusNode node, Intent intent) {
+    //   _handleTap();
+    // });
   }
 
   double get _denseButtonHeight {
@@ -943,7 +944,8 @@ class _DropdownButtonState<T> extends State<ACEDropdownButton<T>>
     return Semantics(
         button: true,
         child: Actions(
-            actions: _actionMap,
+            // actions: _actionMap,
+            actions: null,
             child: Focus(
                 canRequestFocus: _enabled,
                 focusNode: focusNode,

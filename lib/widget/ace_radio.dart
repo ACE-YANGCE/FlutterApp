@@ -44,15 +44,15 @@ class ACERadio<T> extends StatefulWidget {
 
 class _RadioState<T> extends State<ACERadio<T>> with TickerProviderStateMixin {
   bool get enabled => widget.onChanged != null;
-  Map<LocalKey, ActionFactory> _actionMap;
+  // Map<LocalKey, ActionFactory> _actionMap;
 
   @override
   void initState() {
     super.initState();
-    _actionMap = <LocalKey, ActionFactory>{
-      SelectAction.key: _createAction,
-      if (!kIsWeb) ActivateAction.key: _createAction,
-    };
+    // _actionMap = <LocalKey, ActionFactory>{
+    //   SelectAction.key: _createAction,
+    //   if (!kIsWeb) ActivateAction.key: _createAction,
+    // };
   }
 
   void _actionHandler(FocusNode node, Intent intent) {
@@ -64,7 +64,7 @@ class _RadioState<T> extends State<ACERadio<T>> with TickerProviderStateMixin {
   }
 
   Action _createAction() {
-    return CallbackAction(SelectAction.key, onInvoke: _actionHandler);
+    // return CallbackAction(SelectAction.key, onInvoke: _actionHandler);
   }
 
   bool _focused = false;
@@ -111,7 +111,8 @@ class _RadioState<T> extends State<ACERadio<T>> with TickerProviderStateMixin {
     }
     final BoxConstraints additionalConstraints = BoxConstraints.tight(size);
     return FocusableActionDetector(
-        actions: _actionMap,
+        actions: null,
+        // actions: _actionMap,
         focusNode: widget.focusNode,
         autofocus: widget.autofocus,
         enabled: enabled,

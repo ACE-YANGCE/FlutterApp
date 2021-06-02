@@ -153,7 +153,7 @@ class _MediaQueryPageState extends State<MediaQueryPage> {
         print('视图内边距 -> ${MediaQuery.of(context).viewPadding}');
         break;
       case 18:
-        print('设备物理层级 -> ${MediaQuery.of(context).physicalDepth}');
+        // print('设备物理层级 -> ${MediaQuery.of(context).physicalDepth}');
         break;
     }
     print('Current Button $index click --> end');

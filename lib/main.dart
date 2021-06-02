@@ -8,6 +8,7 @@ import 'package:flutter_app/page/ace_pie_page.dart';
 import 'package:flutter_app/page/ace_progress_page.dart';
 import 'package:flutter_app/page/ace_radio_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
+import 'package:flutter_app/page/ace_tabbar_page.dart';
 import 'package:flutter_app/page/animated_builder_page.dart';
 import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
@@ -94,6 +95,7 @@ class MyApp extends StatelessWidget {
           'groupListPage': (BuildContext context) => GroupListPage(),
           'dialogPage': (BuildContext context) => DialogPage(),
           'aceIconPage': (BuildContext context) => ACEIconPage(),
+          'aceTabBarPage': (BuildContext context) => ACETabBarPage(),
         });
   }
 }
@@ -237,6 +239,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 4),
                 _itemWid('ACE ICON 图标库', 39, Colors.red.withOpacity(0.4))
               ]),
+              Row(children: <Widget>[
+                _itemWid('ACETabBar Page', 40, Colors.green.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 41, Colors.lightGreen.withOpacity(0.4))
+              ]),
             ])),
         floatingActionButton: FloatingActionButton(
             onPressed: _incrementCounter,
@@ -379,6 +386,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 39:
         Navigator.pushNamed(context, 'aceIconPage');
+        break;
+      case 40:
+        Navigator.pushNamed(context, 'aceTabBarPage');
         break;
     }
   }

@@ -19,6 +19,7 @@ import 'package:flutter_app/page/draggable_grid_page.dart';
 import 'package:flutter_app/page/draggable_page.dart';
 import 'package:flutter_app/page/future_page.dart';
 import 'package:flutter_app/page/group_list_page.dart';
+import 'package:flutter_app/page/image_page.dart';
 import 'package:flutter_app/page/isolate_page.dart';
 import 'package:flutter_app/page/layout_builder_page.dart';
 import 'package:flutter_app/page/math_page.dart';
@@ -96,6 +97,7 @@ class MyApp extends StatelessWidget {
           'dialogPage': (BuildContext context) => DialogPage(),
           'aceIconPage': (BuildContext context) => ACEIconPage(),
           'aceTabBarPage': (BuildContext context) => ACETabBarPage(),
+          'imagePage': (BuildContext context) => ImagePage(),
         });
   }
 }
@@ -242,7 +244,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('ACETabBar Page', 40, Colors.green.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 41, Colors.lightGreen.withOpacity(0.4))
+                _itemWid('Image Page', 41, Colors.lightGreen.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -389,6 +391,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 40:
         Navigator.pushNamed(context, 'aceTabBarPage');
+        break;
+      case 41:
+        Navigator.pushNamed(context, 'imagePage');
         break;
     }
   }

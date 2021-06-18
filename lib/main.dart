@@ -12,6 +12,7 @@ import 'package:flutter_app/page/ace_tabbar_page.dart';
 import 'package:flutter_app/page/animated_builder_page.dart';
 import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
+import 'package:flutter_app/page/color_tween_page.dart';
 import 'package:flutter_app/page/database_page.dart';
 import 'package:flutter_app/page/dialog_page.dart';
 import 'package:flutter_app/page/dismissible_page.dart';
@@ -98,6 +99,7 @@ class MyApp extends StatelessWidget {
           'aceIconPage': (BuildContext context) => ACEIconPage(),
           'aceTabBarPage': (BuildContext context) => ACETabBarPage(),
           'imagePage': (BuildContext context) => ImagePage(),
+          'colorTweenPage': (BuildContext context) => ColorTweenPage(),
         });
   }
 }
@@ -245,6 +247,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid('ACETabBar Page', 40, Colors.green.withOpacity(0.4)),
                 SizedBox(width: 4),
                 _itemWid('Image Page', 41, Colors.lightGreen.withOpacity(0.4))
+              ]),
+              Row(children: <Widget>[
+                _itemWid(
+                    'ColorTween', 42, Colors.indigoAccent.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 43, Colors.grey.withOpacity(0.4))
+              ]),
+              Row(children: <Widget>[
+                _itemWid('', 44, Colors.orange.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 45, Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -394,6 +407,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 41:
         Navigator.pushNamed(context, 'imagePage');
+        break;
+      case 42:
+        Navigator.pushNamed(context, 'colorTweenPage');
         break;
     }
   }

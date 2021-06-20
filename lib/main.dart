@@ -12,6 +12,7 @@ import 'package:flutter_app/page/ace_tabbar_page.dart';
 import 'package:flutter_app/page/animated_builder_page.dart';
 import 'package:flutter_app/page/async_page.dart';
 import 'package:flutter_app/page/bloc_page.dart';
+import 'package:flutter_app/page/button_bar_page.dart';
 import 'package:flutter_app/page/color_tween_page.dart';
 import 'package:flutter_app/page/database_page.dart';
 import 'package:flutter_app/page/dialog_page.dart';
@@ -100,6 +101,7 @@ class MyApp extends StatelessWidget {
           'aceTabBarPage': (BuildContext context) => ACETabBarPage(),
           'imagePage': (BuildContext context) => ImagePage(),
           'colorTweenPage': (BuildContext context) => ColorTweenPage(),
+          'buttonBarPage': (BuildContext context) => ButtonBarPage(),
         });
   }
 }
@@ -252,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid(
                     'ColorTween', 42, Colors.indigoAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 43, Colors.grey.withOpacity(0.4))
+                _itemWid('ButtonBar', 43, Colors.grey.withOpacity(0.4))
               ]),
               Row(children: <Widget>[
                 _itemWid('', 44, Colors.orange.withOpacity(0.4)),
@@ -410,6 +412,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 42:
         Navigator.pushNamed(context, 'colorTweenPage');
+        break;
+      case 43:
+        Navigator.pushNamed(context, 'buttonBarPage');
         break;
     }
   }

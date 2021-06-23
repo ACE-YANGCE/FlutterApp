@@ -36,6 +36,7 @@ import 'package:flutter_app/page/shader_mask_page.dart';
 import 'package:flutter_app/page/slider_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/page/task_queue_page.dart';
+import 'package:flutter_app/page/toggle_buttons_page.dart';
 import 'package:flutter_app/widget/ace_pie_widget.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
 import 'package:flutter_app/page/animated_cross_fade_page.dart';
@@ -102,6 +103,7 @@ class MyApp extends StatelessWidget {
           'imagePage': (BuildContext context) => ImagePage(),
           'colorTweenPage': (BuildContext context) => ColorTweenPage(),
           'buttonBarPage': (BuildContext context) => ButtonBarPage(),
+          'toggleButtonsPage': (BuildContext context) => ToggleButtonsPage(),
         });
   }
 }
@@ -257,7 +259,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid('ButtonBar', 43, Colors.grey.withOpacity(0.4))
               ]),
               Row(children: <Widget>[
-                _itemWid('', 44, Colors.orange.withOpacity(0.4)),
+                _itemWid('ToggleButtons', 44, Colors.orange.withOpacity(0.4)),
                 SizedBox(width: 4),
                 _itemWid('', 45, Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
@@ -415,6 +417,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 43:
         Navigator.pushNamed(context, 'buttonBarPage');
+        break;
+      case 44:
+        Navigator.pushNamed(context, 'toggleButtonsPage');
         break;
     }
   }

@@ -31,6 +31,7 @@ import 'package:flutter_app/page/page_view_page.dart';
 import 'package:flutter_app/page/paragraph_page.dart';
 import 'package:flutter_app/page/physical_model_page.dart';
 import 'package:flutter_app/page/reorder_list_page.dart';
+import 'package:flutter_app/page/scrollable_sheet_page.dart';
 import 'package:flutter_app/page/series_circle_page.dart';
 import 'package:flutter_app/page/shader_mask_page.dart';
 import 'package:flutter_app/page/slider_page.dart';
@@ -104,6 +105,7 @@ class MyApp extends StatelessWidget {
           'colorTweenPage': (BuildContext context) => ColorTweenPage(),
           'buttonBarPage': (BuildContext context) => ButtonBarPage(),
           'toggleButtonsPage': (BuildContext context) => ToggleButtonsPage(),
+          'scrollSheetPage': (BuildContext context) => ScrollableSheetPage(),
         });
   }
 }
@@ -261,7 +263,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('ToggleButtons', 44, Colors.orange.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 45, Colors.deepOrangeAccent.withOpacity(0.4))
+                _itemWid('ScrollableSheet', 45,
+                    Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -420,6 +423,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 44:
         Navigator.pushNamed(context, 'toggleButtonsPage');
+        break;
+      case 45:
+        Navigator.pushNamed(context, 'scrollSheetPage');
         break;
     }
   }

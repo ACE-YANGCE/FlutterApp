@@ -29,6 +29,7 @@ import 'package:flutter_app/page/math_page.dart';
 import 'package:flutter_app/page/media_query_page.dart';
 import 'package:flutter_app/page/overlay_page.dart';
 import 'package:flutter_app/page/page_view_page.dart';
+import 'package:flutter_app/page/paginated_data_table_page.dart';
 import 'package:flutter_app/page/paragraph_page.dart';
 import 'package:flutter_app/page/physical_model_page.dart';
 import 'package:flutter_app/page/reorder_list_page.dart';
@@ -108,6 +109,8 @@ class MyApp extends StatelessWidget {
           'toggleButtonsPage': (BuildContext context) => ToggleButtonsPage(),
           'scrollSheetPage': (BuildContext context) => ScrollableSheetPage(),
           'animatedListPage': (BuildContext context) => AnimatedListPage(),
+          'paginatedDataTable': (BuildContext context) =>
+              PaginatedDataTablePage(),
         });
   }
 }
@@ -271,7 +274,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('AnimatedList', 46, Colors.redAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 47, Colors.red.withOpacity(0.4))
+                _itemWid('PaginatedDataTable', 47, Colors.red.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -436,6 +439,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 46:
         Navigator.pushNamed(context, 'animatedListPage');
+        break;
+      case 47:
+        Navigator.pushNamed(context, 'paginatedDataTable');
         break;
     }
   }

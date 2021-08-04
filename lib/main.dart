@@ -9,6 +9,7 @@ import 'package:flutter_app/page/ace_progress_page.dart';
 import 'package:flutter_app/page/ace_radio_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/page/ace_tabbar_page.dart';
+import 'package:flutter_app/page/ace_water_button_page.dart';
 import 'package:flutter_app/page/animated_builder_page.dart';
 import 'package:flutter_app/page/animated_list_page.dart';
 import 'package:flutter_app/page/async_page.dart';
@@ -111,6 +112,7 @@ class MyApp extends StatelessWidget {
           'animatedListPage': (BuildContext context) => AnimatedListPage(),
           'paginatedDataTable': (BuildContext context) =>
               PaginatedDataTablePage(),
+          'aceWaterButtonPage': (BuildContext context) => ACEWaterButtonPage(),
         });
   }
 }
@@ -275,6 +277,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid('AnimatedList', 46, Colors.redAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
                 _itemWid('PaginatedDataTable', 47, Colors.red.withOpacity(0.4))
+              ]),
+              Row(children: <Widget>[
+                _itemWid('ACEWaterButton', 48, Colors.green.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 49, Colors.lightGreen.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -442,6 +449,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 47:
         Navigator.pushNamed(context, 'paginatedDataTable');
+        break;
+      case 48:
+        Navigator.pushNamed(context, 'aceWaterButtonPage');
         break;
     }
   }

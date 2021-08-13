@@ -38,6 +38,7 @@ import 'package:flutter_app/page/scrollable_sheet_page.dart';
 import 'package:flutter_app/page/series_circle_page.dart';
 import 'package:flutter_app/page/shader_mask_page.dart';
 import 'package:flutter_app/page/slider_page.dart';
+import 'package:flutter_app/page/svga_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/page/task_queue_page.dart';
 import 'package:flutter_app/page/toggle_buttons_page.dart';
@@ -113,6 +114,7 @@ class MyApp extends StatelessWidget {
           'paginatedDataTable': (BuildContext context) =>
               PaginatedDataTablePage(),
           'aceWaterButtonPage': (BuildContext context) => ACEWaterButtonPage(),
+          'svgaPage': (BuildContext context) => SVGAPage(),
         });
   }
 }
@@ -281,7 +283,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('ACEWaterButton', 48, Colors.green.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 49, Colors.lightGreen.withOpacity(0.4))
+                _itemWid('SVGA Page', 49, Colors.lightGreen.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -452,6 +454,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 48:
         Navigator.pushNamed(context, 'aceWaterButtonPage');
+        break;
+      case 49:
+        Navigator.pushNamed(context, 'svgaPage');
         break;
     }
   }

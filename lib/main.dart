@@ -41,6 +41,7 @@ import 'package:flutter_app/page/slider_page.dart';
 import 'package:flutter_app/page/svga_page.dart';
 import 'package:flutter_app/page/tabbar_page.dart';
 import 'package:flutter_app/page/task_queue_page.dart';
+import 'package:flutter_app/page/timer_page.dart';
 import 'package:flutter_app/page/toggle_buttons_page.dart';
 import 'package:flutter_app/widget/ace_pie_widget.dart';
 import 'package:flutter_app/widget/ace_stepper.dart';
@@ -115,6 +116,7 @@ class MyApp extends StatelessWidget {
               PaginatedDataTablePage(),
           'aceWaterButtonPage': (BuildContext context) => ACEWaterButtonPage(),
           'svgaPage': (BuildContext context) => SVGAPage(),
+          'timerPage': (BuildContext context) => TimerPage(),
         });
   }
 }
@@ -284,6 +286,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid('ACEWaterButton', 48, Colors.green.withOpacity(0.4)),
                 SizedBox(width: 4),
                 _itemWid('SVGA Page', 49, Colors.lightGreen.withOpacity(0.4))
+              ]),
+              Row(children: <Widget>[
+                _itemWid(
+                    'Timer Page', 50, Colors.indigoAccent.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 51, Colors.grey.withOpacity(0.4))
+              ]),
+              Row(children: <Widget>[
+                _itemWid('', 52, Colors.orange.withOpacity(0.4)),
+                SizedBox(width: 4),
+                _itemWid('', 53, Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -457,6 +470,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 49:
         Navigator.pushNamed(context, 'svgaPage');
+        break;
+      case 50:
+        Navigator.pushNamed(context, 'timerPage');
         break;
     }
   }

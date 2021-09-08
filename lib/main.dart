@@ -35,6 +35,7 @@ import 'package:flutter_app/page/paragraph_page.dart';
 import 'package:flutter_app/page/physical_model_page.dart';
 import 'package:flutter_app/page/reorder_list_page.dart';
 import 'package:flutter_app/page/scrollable_sheet_page.dart';
+import 'package:flutter_app/page/segmented_page.dart';
 import 'package:flutter_app/page/series_circle_page.dart';
 import 'package:flutter_app/page/shader_mask_page.dart';
 import 'package:flutter_app/page/slider_page.dart';
@@ -117,6 +118,7 @@ class MyApp extends StatelessWidget {
           'aceWaterButtonPage': (BuildContext context) => ACEWaterButtonPage(),
           'svgaPage': (BuildContext context) => SVGAPage(),
           'timerPage': (BuildContext context) => TimerPage(),
+          'segmentedPage': (BuildContext context) => SegmentedPage(),
         });
   }
 }
@@ -291,7 +293,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid(
                     'Timer Page', 50, Colors.indigoAccent.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 51, Colors.grey.withOpacity(0.4))
+                _itemWid('Segmented Page', 51, Colors.grey.withOpacity(0.4))
               ]),
               Row(children: <Widget>[
                 _itemWid('', 52, Colors.orange.withOpacity(0.4)),
@@ -473,6 +475,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 50:
         Navigator.pushNamed(context, 'timerPage');
+        break;
+      case 51:
+        Navigator.pushNamed(context, 'segmentedPage');
         break;
     }
   }

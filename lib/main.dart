@@ -28,6 +28,7 @@ import 'package:flutter_app/page/isolate_page.dart';
 import 'package:flutter_app/page/layout_builder_page.dart';
 import 'package:flutter_app/page/math_page.dart';
 import 'package:flutter_app/page/media_query_page.dart';
+import 'package:flutter_app/page/overflow_page.dart';
 import 'package:flutter_app/page/overlay_page.dart';
 import 'package:flutter_app/page/page_view_page.dart';
 import 'package:flutter_app/page/paginated_data_table_page.dart';
@@ -119,6 +120,7 @@ class MyApp extends StatelessWidget {
           'svgaPage': (BuildContext context) => SVGAPage(),
           'timerPage': (BuildContext context) => TimerPage(),
           'segmentedPage': (BuildContext context) => SegmentedPage(),
+          'overflowPage': (BuildContext context) => OverflowPage(),
         });
   }
 }
@@ -296,7 +298,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _itemWid('Segmented Page', 51, Colors.grey.withOpacity(0.4))
               ]),
               Row(children: <Widget>[
-                _itemWid('', 52, Colors.orange.withOpacity(0.4)),
+                _itemWid('ACEFoldTextView', 52, Colors.orange.withOpacity(0.4)),
                 SizedBox(width: 4),
                 _itemWid('', 53, Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
@@ -478,6 +480,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 51:
         Navigator.pushNamed(context, 'segmentedPage');
+        break;
+      case 52:
+        Navigator.pushNamed(context, 'overflowPage');
         break;
     }
   }

@@ -7,6 +7,7 @@ import 'package:flutter_app/page/ace_page_menu_page.dart';
 import 'package:flutter_app/page/ace_pie_page.dart';
 import 'package:flutter_app/page/ace_progress_page.dart';
 import 'package:flutter_app/page/ace_radio_page.dart';
+import 'package:flutter_app/page/ace_star_page.dart';
 import 'package:flutter_app/page/ace_stepper_page.dart';
 import 'package:flutter_app/page/ace_tabbar_page.dart';
 import 'package:flutter_app/page/ace_water_button_page.dart';
@@ -121,6 +122,7 @@ class MyApp extends StatelessWidget {
           'timerPage': (BuildContext context) => TimerPage(),
           'segmentedPage': (BuildContext context) => SegmentedPage(),
           'overflowPage': (BuildContext context) => OverflowPage(),
+          'aceStarPage': (BuildContext context) => ACEStarPage(),
         });
   }
 }
@@ -300,7 +302,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(children: <Widget>[
                 _itemWid('ACEFoldTextView', 52, Colors.orange.withOpacity(0.4)),
                 SizedBox(width: 4),
-                _itemWid('', 53, Colors.deepOrangeAccent.withOpacity(0.4))
+                _itemWid('渐变国旗头像', 53, Colors.deepOrangeAccent.withOpacity(0.4))
               ]),
             ])),
         floatingActionButton: FloatingActionButton(
@@ -483,6 +485,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 52:
         Navigator.pushNamed(context, 'overflowPage');
+        break;
+      case 53:
+        Navigator.pushNamed(context, 'aceStarPage');
         break;
     }
   }

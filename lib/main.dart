@@ -62,6 +62,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'ACE Flutter Demo',
+          centerTitle: false,
+          titleSpacing: 0.0,
         theme: ThemeData(primarySwatch: Colors.blue),
         home: MyHomePage(title: 'ACE Flutter Demo Home Page'),
         routes: {
